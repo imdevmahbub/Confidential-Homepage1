@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Revamp365.ai | Better data. Smarter comps. Free forever.</title>
+  <meta name="description" content="AI-powered real estate investor intelligence workspace. Search properties, run hyper-accurate comps, model flips & rentals, and build custom AI voice agents. Free forever.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            navy: {
+              950: '#030712',
+              900: '#060B17',
+              850: '#0A1224',
+              800: '#0F1A33',
+              700: '#19284D',
+              600: '#263C6F',
+            },
+            gold: {
+              400: '#F5C044',
+              500: '#E5A93C',
+              600: '#C88B25',
+              700: '#A46E16',
+            },
+            emeraldAccent: {
+              400: '#34D399',
+              500: '#10B981',
+              600: '#059669',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          boxShadow: {
+            'gold-glow': '0 0 25px -4px rgba(229, 169, 60, 0.35)',
+            'emerald-glow': '0 0 25px -4px rgba(16, 185, 129, 0.30)',
+            'inner-panel': 'inset 0 1px 0 0 rgba(255, 255, 255, 0.08)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom refined scrollbar and backdrop mesh */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #060B17;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #19284D;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #E5A93C;
+    }
+
+    .hero-mesh {
+      background: 
+        radial-gradient(circle at 18% 25%, rgba(229, 169, 60, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 82% 35%, rgba(16, 185, 129, 0.10) 0%, transparent 50%),
+        radial-gradient(circle at 50% 80%, rgba(38, 60, 111, 0.35) 0%, transparent 65%),
+        #060B17;
+    }
+
+    .glass-card {
+      background: rgba(15, 26, 51, 0.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .glass-card-hover {
+      transition: all 0.28s ease-in-out;
+    }
+    .glass-card-hover:hover {
+      border-color: rgba(229, 169, 60, 0.35);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px -12px rgba(6, 11, 23, 0.9), 0 0 20px -6px rgba(229, 169, 60, 0.18);
+    }
+
+    .badge-gold {
+      background: rgba(229, 169, 60, 0.12);
+      color: #F5C044;
+      border: 1px solid rgba(229, 169, 60, 0.3);
+    }
+
+    .badge-emerald {
+      background: rgba(16, 185, 129, 0.12);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.28);
+    }
+
+    /* Grid background pattern */
+    .grid-pattern {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="bg-navy-900 text-slate-200 font-sans selection:bg-gold-500 selection:text-navy-950 overflow-x-hidden antialiased">
+
+  <!-- ======================================================== -->
+  <!-- 1. STICKY PREMIUM HEADER -->
+  <!-- ======================================================== -->
+  <header class="sticky top-0 z-50 w-full bg-navy-900/90 backdrop-blur-md border-b border-white/10 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-gold-500 rounded-lg p-1">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 via-gold-500 to-amber-700 p-0.5 shadow-gold-glow flex items-center justify-center">
+          <div class="w-full h-full bg-navy-950 rounded-[10px] flex items-center justify-center">
+            <!-- R with 365 arrow motif -->
+            <svg class="w-6 h-6 text-gold-400 transform group-hover:rotate-6 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H14a5 5 0 0 1 5 5c0 2.2-1.4 4.1-3.4 4.7L20 20" />
+              <path d="M6 12h8" />
+              <circle cx="19" cy="5" r="1.5" fill="#10B981" stroke="none" />
+            </svg>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-1.5">
+            <span class="text-xl font-extrabold tracking-tight text-white font-sans">REVAMP<span class="text-gold-400">365</span></span>
+            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-emeraldAccent-500/15 text-emeraldAccent-400 font-bold border border-emeraldAccent-500/30">AI</span>
+          </div>
+          <span class="text-[10px] tracking-wider uppercase text-slate-400 font-medium">Investor Workspace</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#product" class="hover:text-gold-400 transition-colors py-1">Product</a>
+        <a href="#workspace" class="hover:text-gold-400 transition-colors py-1">Free Workspace</a>
+        <a href="#capabilities" class="hover:text-gold-400 transition-colors py-1">Capabilities</a>
+        <a href="#pricing" class="hover:text-gold-400 transition-colors py-1">Pricing</a>
+        <a href="#faq" class="hover:text-gold-400 transition-colors py-1">FAQ</a>
+        <a href="#contact" class="hover:text-gold-400 transition-colors py-1">Contact</a>
+      </nav>
+
+      <!-- Desktop Auth & Primary Action -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href="#login" onclick="openLoginModal(event)" class="text-sm font-semibold text-slate-300 hover:text-white px-3 py-2 rounded-lg transition-colors">
+          Log In
+        </a>
+        <a href="#signup" onclick="scrollToSignup(event)" class="relative inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold text-navy-950 transition-all bg-gradient-to-r from-gold-400 via-gold-500 to-gold-400 hover:brightness-110 rounded-xl shadow-gold-glow active:scale-95">
+          <span>Create your free account</span>
+          <i class="ph-bold ph-arrow-right ml-2 text-base"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-navy-800 focus:outline-none" aria-label="Toggle Navigation Menu">
+        <i id="menuIcon" class="ph-bold ph-list text-2xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileDrawer" class="hidden md:hidden bg-navy-950/95 border-b border-white/10 px-6 py-6 transition-all duration-300">
+      <nav class="flex flex-col gap-4 text-base font-medium text-slate-200">
+        <a href="#product" class="hover:text-gold-400 py-1" onclick="closeMobileMenu()">Product</a>
+        <a href="#workspace" class="hover:text-gold-400 py-1" onclick="closeMobileMenu()">Free Workspace</a>
+        <a href="#capabilities" class="hover:text-gold-400 py-1" onclick="closeMobileMenu()">Capabilities &amp; Plans</a>
+        <a href="#pricing" class="hover:text-gold-400 py-1" onclick="closeMobileMenu()">Pricing Model</a>
+        <a href="#faq" class="hover:text-gold-400 py-1" onclick="closeMobileMenu()">Investor FAQ</a>
+        <a href="#contact" class="hover:text-gold-400 py-1" onclick="closeMobileMenu()">Contact</a>
+        <div class="pt-4 border-t border-white/10 flex flex-col gap-3">
+          <button onclick="openLoginModal(event)" class="w-full text-center py-2.5 text-sm font-semibold text-slate-200 rounded-lg bg-navy-800">
+            Log In
+          </button>
+          <a href="#signup" onclick="scrollToSignup(event); closeMobileMenu();" class="w-full text-center py-3 text-sm font-bold text-navy-950 bg-gold-400 rounded-xl shadow-gold-glow">
+            Create your free account
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+  <main>
+    <!-- ======================================================== -->
+    <!-- 2. HERO SECTION -->
+    <!-- ======================================================== -->
+    <section class="relative min-h-[90vh] flex items-center justify-center hero-mesh pt-12 pb-24 overflow-hidden border-b border-white/10" style="background-image: none;">
+  <!--   <section class="relative min-h-[90vh] flex items-center justify-center hero-mesh grid-pattern pt-12 pb-24 overflow-hidden border-b border-white/10"> -->
+      <!-- Glow ambient shapes -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[340px] bg-gold-500/10 blur-[130px] rounded-full pointer-events-none"></div>
+      <div class="absolute top-1/3 right-10 w-[400px] h-[300px] bg-emeraldAccent-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        
+        <!-- Live pill badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card border border-gold-500/30 mb-8 animate-fade-in shadow-inner-panel">
+          <span class="w-2 h-2 rounded-full bg-emeraldAccent-400 animate-pulse"></span>
+          <span class="text-xs font-semibold text-slate-200 tracking-wide">Next-Gen Real Estate Investor Intelligence</span>
+          <span class="text-xs text-gold-400 font-mono font-medium pl-1 border-l border-white/20">v2.4 Live</span>
+        </div>
+
+        <!-- EXACT HERO HEADLINE -->
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white max-w-5xl mx-auto leading-[1.12]">
+          Better data. Smarter comps. <br class="hidden sm:inline">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 via-amber-300 to-emeraldAccent-400">
+            Free forever.
+          </span>
+        </h1>
+
+        <!-- Supporting copy -->
+        <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
+          Instant nationwide property and owner research, verified MLS comps, institutional-grade underwriting calculators, and visual AI voice agent design. Zero cost to start.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#signup" onclick="scrollToSignup(event)" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-navy-950 bg-gradient-to-r from-gold-400 via-gold-500 to-amber-400 hover:brightness-110 shadow-gold-glow transition-all active:scale-95">
+            <span>Create your free account</span>
+            <i class="ph-bold ph-caret-circle-right text-xl"></i>
+          </a>
+          <a href="#product" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl text-base font-semibold text-slate-200 glass-card border border-slate-700/80 hover:border-gold-400/60 hover:text-white transition-all">
+            <i class="ph-bold ph-play-circle text-gold-400 text-xl"></i>
+            <span>Explore the product</span>
+          </a>
+        </div>
+
+        <!-- VISIBLE REASSURANCE -->
+        <div class="mt-6 flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-xs sm:text-sm font-medium text-slate-400">
+          <div class="flex items-center gap-1.5">
+            <i class="ph-bold ph-check text-emeraldAccent-400"></i>
+            <span>No credit card required.</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <i class="ph-bold ph-check text-emeraldAccent-400"></i>
+            <span>No trial deadline.</span>
+          </div>
+          <div class="flex items-center gap-1.5">
+            <i class="ph-bold ph-check text-emeraldAccent-400"></i>
+            <span>Full search &amp; underwriting tools included.</span>
+          </div>
+        </div>
+
+        <!-- PRODUCT HERO PREVIEW INTERFACE -->
+        <div class="mt-14 relative max-w-5xl mx-auto text-left">
+          <div class="rounded-2xl glass-card p-3 sm:p-5 shadow-2xl border border-white/15 relative overflow-hidden backdrop-blur-2xl">
+            <!-- Window header -->
+            <div class="flex items-center justify-between pb-4 border-b border-white/10 mb-4">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                <span class="text-xs text-slate-400 font-mono ml-2 hidden sm:inline">revamp365.ai/workspace/property-analyzer</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs">
+                <span class="badge-emerald px-2.5 py-1 rounded-md font-semibold flex items-center gap-1">
+                  <i class="ph-fill ph-check-circle"></i> Live Data Feed
+                </span>
+                <span class="badge-gold px-2.5 py-1 rounded-md font-mono hidden sm:inline">Free Tier: Active</span>
+              </div>
+            </div>
+
+            <!-- Interactive Search Bar Mock inside Interface -->
+            <div class="bg-navy-950/80 p-3 rounded-xl border border-white/10 flex flex-col md:flex-row gap-3 items-center justify-between">
+              <div class="flex items-center gap-3 w-full md:w-3/5 px-3 py-2 bg-navy-900 rounded-lg border border-slate-700/60 focus-within:border-gold-400 transition-colors">
+                <i class="ph-bold ph-magnifying-glass text-gold-400 text-lg"></i>
+                <input id="heroSearchInput" type="text" value="742 Evergreen Terrace, Springfield, OR" class="bg-transparent text-sm w-full text-slate-100 focus:outline-none" placeholder="Search address, APN, or owner name...">
+              </div>
+              <div class="flex items-center gap-2 w-full md:w-auto justify-end">
+                <button onclick="simulateSearch()" class="px-4 py-2 bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold text-xs rounded-lg transition flex items-center gap-1.5 w-full md:w-auto justify-center">
+                  <i class="ph-bold ph-lightning"></i> Instant Comp Analysis
+                </button>
+              </div>
+            </div>
+
+            <!-- Dynamic Workspace Quick Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 mt-4">
+              <!-- Left: Core Property card -->
+              <div class="md:col-span-5 bg-navy-900/90 rounded-xl p-4 border border-white/10 flex flex-col justify-between">
+                <div>
+                  <div class="flex justify-between items-start">
+                    <div>
+                      <span class="text-[11px] font-mono uppercase tracking-wider text-slate-400">Single Family Residence</span>
+                      <h3 class="text-base font-bold text-white mt-0.5">742 Evergreen Terrace</h3>
+                      <p class="text-xs text-slate-300">Springfield, OR 97477 • Lane County</p>
+                    </div>
+                    <span class="text-xs font-semibold px-2 py-0.5 rounded bg-emeraldAccent-500/20 text-emeraldAccent-400 border border-emeraldAccent-500/30">Off-Market</span>
+                  </div>
+
+                  <div class="grid grid-cols-3 gap-2 mt-4 text-center">
+                    <div class="bg-navy-850 p-2 rounded-lg border border-white/5">
+                      <div class="text-[11px] text-slate-400">Beds/Bath</div>
+                      <div class="text-sm font-bold text-slate-100">4 / 2.5</div>
+                    </div>
+                    <div class="bg-navy-850 p-2 rounded-lg border border-white/5">
+                      <div class="text-[11px] text-slate-400">Sq Ft</div>
+                      <div class="text-sm font-bold text-slate-100">2,420</div>
+                    </div>
+                    <div class="bg-navy-850 p-2 rounded-lg border border-white/5">
+                      <div class="text-[11px] text-slate-400">Year Built</div>
+                      <div class="text-sm font-bold text-slate-100">1992</div>
+                    </div>
+                  </div>
+
+                  <div class="mt-4 pt-3 border-t border-white/10 space-y-2 text-xs">
+                    <div class="flex justify-between">
+                      <span class="text-slate-400">Automated Valuation (AVM)</span>
+                      <span class="font-bold text-slate-100 font-mono">$438,500</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-slate-400">Estimated Equity</span>
+                      <span class="font-bold text-emeraldAccent-400 font-mono">68% ($298k)</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-slate-400">Ownership Duration</span>
+                      <span class="text-slate-200">14 yrs (High Motivation)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-white/10 flex items-center justify-between text-[11px]">
+                  <span class="text-slate-400 flex items-center gap-1">
+                    <i class="ph ph-shield-check text-gold-400"></i> Free Owner Search
+                  </span>
+                  <span class="text-gold-400 font-medium">Homer &amp; M. Simpson</span>
+                </div>
+              </div>
+
+              <!-- Right: Live Underwriting Comps & AI Tab Preview -->
+              <div class="md:col-span-7 bg-navy-900/90 rounded-xl p-4 border border-white/10">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+                    <i class="ph-bold ph-chart-line-up text-gold-400"></i>
+                    Comps Underwriting Engine (1.0 mi radius)
+                  </div>
+                  <span class="text-[11px] font-mono text-emeraldAccent-400">8 Sold Comps Found</span>
+                </div>
+
+                <!-- Mini Comp Table -->
+                <div class="overflow-x-auto">
+                  <table class="w-full text-left text-xs">
+                    <thead>
+                      <tr class="text-slate-400 border-b border-white/10">
+                        <th class="pb-2 font-medium">Subject / Comp</th>
+                        <th class="pb-2 font-medium">Dist</th>
+                        <th class="pb-2 font-medium">Sold Price</th>
+                        <th class="pb-2 font-medium">$/SqFt</th>
+                        <th class="pb-2 font-medium text-right">Adjustment</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5 font-mono text-[11px]">
+                      <tr class="text-slate-200">
+                        <td class="py-2 flex items-center gap-1 font-sans font-medium">
+                          <span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent-400"></span> 738 Evergreen
+                        </td>
+                        <td class="py-2 text-slate-400">0.08 mi</td>
+                        <td class="py-2 text-white font-bold">$442,000</td>
+                        <td class="py-2 text-slate-300">$185</td>
+                        <td class="py-2 text-right text-emeraldAccent-400">+$3,200</td>
+                      </tr>
+                      <tr class="text-slate-200">
+                        <td class="py-2 flex items-center gap-1 font-sans font-medium">
+                          <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span> 120 Elm Street
+                        </td>
+                        <td class="py-2 text-slate-400">0.32 mi</td>
+                        <td class="py-2 text-white font-bold">$425,000</td>
+                        <td class="py-2 text-slate-300">$179</td>
+                        <td class="py-2 text-right text-emeraldAccent-400">+$12,400</td>
+                      </tr>
+                      <tr class="text-slate-200">
+                        <td class="py-2 flex items-center gap-1 font-sans font-medium">
+                          <span class="w-1.5 h-1.5 rounded-full bg-gold-400"></span> 99 Spruce Blvd
+                        </td>
+                        <td class="py-2 text-slate-400">0.55 mi</td>
+                        <td class="py-2 text-white font-bold">$460,000</td>
+                        <td class="py-2 text-slate-300">$194</td>
+                        <td class="py-2 text-right text-rose-400">-$8,100</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- Calculator summary strip -->
+                <div class="mt-4 p-3 bg-navy-850 rounded-lg border border-gold-500/20 grid grid-cols-3 gap-2 text-center">
+                  <div>
+                    <span class="text-[10px] text-slate-400 uppercase">Suggested ARV</span>
+                    <p class="text-sm font-bold text-gold-400 font-mono">$448,000</p>
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-slate-400 uppercase">Est. Rehab (Light)</span>
+                    <p class="text-sm font-bold text-slate-200 font-mono">$32,000</p>
+                  </div>
+                  <div>
+                    <span class="text-[10px] text-slate-400 uppercase">Max Offer (MAO 70%)</span>
+                    <p class="text-sm font-bold text-emeraldAccent-400 font-mono">$281,600</p>
+                  </div>
+                </div>
+
+                <!-- Voice Agent Callout tag inside card -->
+                <div class="mt-3 flex items-center justify-between text-xs px-2 text-slate-400">
+                  <span class="flex items-center gap-1.5">
+                    <i class="ph-bold ph-waveform text-emeraldAccent-400"></i>
+                    <span>AI Voice Agent: <strong>Seller Qualification Prompt v1.2 ready</strong></span>
+                  </span>
+                  <span class="badge-emerald px-2 py-0.5 rounded text-[10px]">Free Builder</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- 3. PRODUCT DEMONSTRATION SECTION -->
+    <!-- ======================================================== -->
+    <section id="product" class="py-24 bg-navy-950 relative border-b border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md badge-gold text-xs font-bold uppercase tracking-widest mb-3">
+            Workflow Architecture
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Designed for how real investors close deals
+          </h2>
+          <p class="mt-4 text-base sm:text-lg text-slate-400">
+            A cohesive real estate operating system that unites nationwide intelligence, instant mathematical conviction, and conversational AI.
+          </p>
+        </div>
+
+        <!-- Interactive 3-Tab Controller -->
+        <div class="flex justify-center mb-10">
+          <div class="inline-flex p-1.5 rounded-2xl bg-navy-900 border border-white/10 shadow-lg">
+            <button onclick="switchProductTab('explore')" id="tabBtn-explore" class="tab-btn px-5 py-3 rounded-xl text-sm font-bold transition-all flex items-center gap-2.5 bg-gold-500 text-navy-950 shadow-gold-glow">
+              <i class="ph-bold ph-database text-lg"></i>
+              <span>Explore the data</span>
+            </button>
+            <button onclick="switchProductTab('numbers')" id="tabBtn-numbers" class="tab-btn px-5 py-3 rounded-xl text-sm font-bold transition-all flex items-center gap-2.5 text-slate-300 hover:text-white">
+              <i class="ph-bold ph-calculator text-lg"></i>
+              <span>Run the numbers</span>
+            </button>
+            <button onclick="switchProductTab('ai')" id="tabBtn-ai" class="tab-btn px-5 py-3 rounded-xl text-sm font-bold transition-all flex items-center gap-2.5 text-slate-300 hover:text-white">
+              <i class="ph-bold ph-robot text-lg"></i>
+              <span>Put AI to work</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- TAB CONTENT CONTAINER -->
+        <div class="glass-card rounded-3xl p-6 sm:p-10 border border-white/10 shadow-2xl">
+          
+          <!-- TAB 1: Explore the data -->
+          <div id="tabContent-explore" class="tab-panel grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-6">
+              <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl">
+                <i class="ph-bold ph-crosshair"></i>
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+                Nationwide records, MLS statuses, and true ownership
+              </h3>
+              <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                Stop juggling fragmented county websites. Revamp365 aggregates tax records, mortgage histories, liens, on-market MLS listings, and deed histories into one real-time investor dossier.
+              </p>
+              <ul class="space-y-3 text-sm text-slate-300">
+                <li class="flex items-center gap-3">
+                  <i class="ph-fill ph-check-circle text-emeraldAccent-400 text-lg"></i>
+                  <span>150M+ properties nationwide with instant search</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i class="ph-fill ph-check-circle text-emeraldAccent-400 text-lg"></i>
+                  <span>Live MLS integration: Pending, active, price drops</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i class="ph-fill ph-check-circle text-emeraldAccent-400 text-lg"></i>
+                  <span>Corporate entity tracking &amp; beneficial owner insights</span>
+                </li>
+              </ul>
+              <div class="pt-2">
+                <span class="badge-emerald px-3 py-1.5 rounded-lg text-xs font-semibold">
+                  Free Forever in Workspace
+                </span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 bg-navy-900 rounded-2xl p-5 border border-white/10 shadow-inner">
+              <div class="flex items-center justify-between pb-3 border-b border-white/10 text-xs">
+                <span class="text-slate-400 font-mono">Filter: Equity &gt; 40% • Non-Owner Occupied • Tax Delinquent</span>
+                <span class="badge-gold px-2 py-0.5 rounded text-[11px]">34 Leads Matched</span>
+              </div>
+              <div class="mt-4 space-y-3 font-mono text-xs">
+                <div class="p-3 bg-navy-850 rounded-xl border border-white/5 flex items-center justify-between hover:border-gold-500/40 transition-colors">
+                  <div>
+                    <div class="font-sans font-bold text-white text-sm">418 Oak Ridge Drive, Tampa FL</div>
+                    <div class="text-slate-400 text-[11px]">Absentee Owner • Est. Equity: $184,000 • 2,100 sqft</div>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-emeraldAccent-400 font-bold">$340,000 AVM</span>
+                    <div class="text-[10px] text-slate-400">No open mortgage</div>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-navy-850 rounded-xl border border-white/5 flex items-center justify-between hover:border-gold-500/40 transition-colors">
+                  <div>
+                    <div class="font-sans font-bold text-white text-sm">1104 Pinecrest Circle, Charlotte NC</div>
+                    <div class="text-slate-400 text-[11px]">Free &amp; Clear • Inherited 2022 • Out-of-State Owner</div>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-emeraldAccent-400 font-bold">$275,000 AVM</span>
+                    <div class="text-[10px] text-amber-400">High Motivation Score</div>
+                  </div>
+                </div>
+
+                <div class="p-3 bg-navy-850 rounded-xl border border-white/5 flex items-center justify-between hover:border-gold-500/40 transition-colors">
+                  <div>
+                    <div class="font-sans font-bold text-white text-sm">8202 Meadowview Ave, Dallas TX</div>
+                    <div class="text-slate-400 text-[11px]">MLS Price Reduced (3x) • Days on Market: 78</div>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-emeraldAccent-400 font-bold">$410,000 List</span>
+                    <div class="text-[10px] text-rose-400">Motivated Agent</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: Run the numbers (Hidden by default) -->
+          <div id="tabContent-numbers" class="tab-panel hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-6">
+              <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl">
+                <i class="ph-bold ph-currency-dollar-simple"></i>
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+                Underwrite flips, rentals, and wholesale spreads in seconds
+              </h3>
+              <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                Never second-guess an offer. Revamp365 dynamically matches sold comps within customizable date, radius, and square footage bands while running flip ROI, BRRRR cashflows, and automated Maximum Allowable Offer (MAO).
+              </p>
+              <ul class="space-y-3 text-sm text-slate-300">
+                <li class="flex items-center gap-3">
+                  <i class="ph-fill ph-check-circle text-emeraldAccent-400 text-lg"></i>
+                  <span>Customizable 70% rule, holding cost, and rehab schedules</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i class="ph-fill ph-check-circle text-emeraldAccent-400 text-lg"></i>
+                  <span>Instant BRRRR refinancing &amp; cash-on-cash projections</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i class="ph-fill ph-check-circle text-emeraldAccent-400 text-lg"></i>
+                  <span>1-click professional Proof of Funds letter generator</span>
+                </li>
+              </ul>
+              <div class="pt-2">
+                <span class="badge-emerald px-3 py-1.5 rounded-lg text-xs font-semibold">
+                  Zero Calculator Paywalls
+                </span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 bg-navy-900 rounded-2xl p-5 border border-white/10 shadow-inner">
+              <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                <span class="text-xs font-bold text-white flex items-center gap-2">
+                  <i class="ph-bold ph-sliders text-gold-400"></i> Underwriting Scenario Matrix
+                </span>
+                <span class="text-[11px] font-mono text-gold-400">Scenario: Fix &amp; Flip 6-Mo</span>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 text-center">
+                <div class="bg-navy-850 p-3 rounded-xl border border-white/5">
+                  <div class="text-[11px] text-slate-400">Purchase Price</div>
+                  <div class="text-base font-bold text-white font-mono mt-1">$220,000</div>
+                </div>
+                <div class="bg-navy-850 p-3 rounded-xl border border-white/5">
+                  <div class="text-[11px] text-slate-400">Estimated Rehab</div>
+                  <div class="text-base font-bold text-white font-mono mt-1">$45,000</div>
+                </div>
+                <div class="bg-navy-850 p-3 rounded-xl border border-white/5">
+                  <div class="text-[11px] text-slate-400">Projected ARV</div>
+                  <div class="text-base font-bold text-emeraldAccent-400 font-mono mt-1">$350,000</div>
+                </div>
+                <div class="bg-navy-850 p-3 rounded-xl border border-white/5">
+                  <div class="text-[11px] text-slate-400">Net Profit / ROI</div>
+                  <div class="text-base font-bold text-gold-400 font-mono mt-1">$53,800 (20.3%)</div>
+                </div>
+              </div>
+              <div class="mt-4 p-4 bg-navy-850 rounded-xl border border-emeraldAccent-500/20 flex flex-col sm:flex-row items-center justify-between gap-3">
+                <div class="text-xs">
+                  <span class="font-bold text-white block">Official Proof of Funds Verified</span>
+                  <span class="text-slate-400">Standard POF template available with active account</span>
+                </div>
+                <button class="px-3 py-1.5 rounded-lg bg-emeraldAccent-500/20 text-emeraldAccent-400 border border-emeraldAccent-500/40 text-xs font-bold flex items-center gap-1.5">
+                  <i class="ph-bold ph-file-pdf"></i> Generate POF (PDF)
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: Put AI to work (Hidden by default) -->
+          <div id="tabContent-ai" class="tab-panel hidden grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-5 space-y-6">
+              <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl">
+                <i class="ph-bold ph-cpu"></i>
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+                Build &amp; customize AI voice agents for seller discovery
+              </h3>
+              <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                Design custom conversational prompts, qualify seller timelines, inspect motivation, and capture asking price expectations without cold-calling burnout.
+              </p>
+              <ul class="space-y-3 text-sm text-slate-300">
+                <li class="flex items-center gap-3">
+                  <i class="ph-fill ph-check-circle text-emeraldAccent-400 text-lg"></i>
+                  <span>Visual Voice Agent Builder included <strong>100% Free</strong></span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i class="ph-fill ph-check-circle text-gold-400 text-lg"></i>
+                  <span>On-demand test calls &amp; tracing use flexible pay-as-you-go credits</span>
+                </li>
+                <li class="flex items-center gap-3">
+                  <i class="ph-fill ph-check-circle text-gold-400 text-lg"></i>
+                  <span>High-volume autonomous outbound campaigns available on paid plans</span>
+                </li>
+              </ul>
+              <div class="pt-2">
+                <span class="badge-gold px-3 py-1.5 rounded-lg text-xs font-semibold">
+                  Zero Lock-In Architecture
+                </span>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 bg-navy-900 rounded-2xl p-5 border border-white/10 shadow-inner">
+              <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emeraldAccent-400 animate-ping"></span>
+                  <span class="text-xs font-bold text-white">Voice Agent Builder: Off-Market Dispo &amp; Acquisition</span>
+                </div>
+                <span class="badge-emerald px-2 py-0.5 rounded text-[10px]">Canvas v3</span>
+              </div>
+              
+              <!-- Agent visual flow simulation -->
+              <div class="mt-4 space-y-3 text-xs">
+                <div class="p-3 bg-navy-850 rounded-lg border-l-4 border-gold-400">
+                  <span class="text-[10px] text-gold-400 font-mono uppercase font-bold">Step 1: Inbound Greeting &amp; Address Confirmation</span>
+                  <p class="text-slate-350 text-slate-300 mt-1 italic">"Hi Homer, calling regarding 742 Evergreen Terrace. Just wanted to see if you'd consider an as-is cash offer before we look at neighboring properties?"</p>
+                </div>
+                <div class="p-3 bg-navy-850 rounded-lg border-l-4 border-emeraldAccent-400">
+                  <span class="text-[10px] text-emeraldAccent-400 font-mono uppercase font-bold">Step 2: Condition &amp; Timeline Parsing</span>
+                  <p class="text-slate-300 mt-1">AI identifies seller intent, roof age, tenant status, and target move date from natural dialogue.</p>
+                </div>
+                <div class="p-3 bg-navy-850 rounded-lg border-l-4 border-blue-400 flex items-center justify-between">
+                  <div>
+                    <span class="text-[10px] text-blue-400 font-mono uppercase font-bold">Step 3: Auto CRM Pipeline Sync</span>
+                    <p class="text-slate-300 mt-0.5">Push transcript + score to active leads</p>
+                  </div>
+                  <span class="text-[11px] font-mono text-emeraldAccent-400 font-bold">Lead Score: 92/100</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- 4. FREE WORKSPACE PILLARS -->
+    <!-- ======================================================== -->
+    <section id="workspace" class="py-24 bg-navy-900 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md badge-emerald text-xs font-bold uppercase tracking-widest mb-3">
+            Core Foundation
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            The free-forever investor workspace
+          </h2>
+          <p class="mt-4 text-base sm:text-lg text-slate-400">
+            No credit card. No expiring 7-day trials. Full access to research, comps, and underwriting math from your very first login.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Feature 1 -->
+          <div class="glass-card rounded-2xl p-7 glass-card-hover flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 text-gold-400 flex items-center justify-center text-2xl mb-5">
+                <i class="ph-bold ph-identification-badge"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Property &amp; Owner Search</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Access deep property specs, transaction histories, assessed valuations, current equity positions, and verified owner records nationwide.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-medium text-emeraldAccent-400">
+              <span class="flex items-center gap-1.5"><i class="ph-fill ph-check"></i> Always Included</span>
+              <span class="text-slate-400 font-mono">100% Free</span>
+            </div>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="glass-card rounded-2xl p-7 glass-card-hover flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-emeraldAccent-500/10 border border-emeraldAccent-500/20 text-emeraldAccent-400 flex items-center justify-center text-2xl mb-5">
+                <i class="ph-bold ph-buildings"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">MLS &amp; On-Market Explorer</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Filter active listings, contingent properties, pending escrows, and price revisions. Spot agent disclosures and seller terms quickly.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-medium text-emeraldAccent-400">
+              <span class="flex items-center gap-1.5"><i class="ph-fill ph-check"></i> Always Included</span>
+              <span class="text-slate-400 font-mono">100% Free</span>
+            </div>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="glass-card rounded-2xl p-7 glass-card-hover flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-2xl mb-5">
+                <i class="ph-bold ph-chart-scatter"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Comps &amp; Algorithmic Valuations</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Fine-tune automated comps by distance, square footage deviation, bedroom count, and closing recency to establish rock-solid ARV benchmarks.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-medium text-emeraldAccent-400">
+              <span class="flex items-center gap-1.5"><i class="ph-fill ph-check"></i> Always Included</span>
+              <span class="text-slate-400 font-mono">100% Free</span>
+            </div>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="glass-card rounded-2xl p-7 glass-card-hover flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center text-2xl mb-5">
+                <i class="ph-bold ph-calculator"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Deal Calculators (Flip / BRRRR / Wholesale)</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Evaluate repair budgets, financing costs, holding periods, assignment fees, and cash-on-cash returns. Save custom deal models directly.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-medium text-emeraldAccent-400">
+              <span class="flex items-center gap-1.5"><i class="ph-fill ph-check"></i> Always Included</span>
+              <span class="text-slate-400 font-mono">100% Free</span>
+            </div>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="glass-card rounded-2xl p-7 glass-card-hover flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-2xl mb-5">
+                <i class="ph-bold ph-certificate"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Proof of Funds Generator</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Generate credible, lender-ready Proof of Funds (POF) documentation to accompany your purchase contracts and win listing broker trust.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-medium text-emeraldAccent-400">
+              <span class="flex items-center gap-1.5"><i class="ph-fill ph-check"></i> Always Included</span>
+              <span class="text-slate-400 font-mono">100% Free</span>
+            </div>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="glass-card rounded-2xl p-7 glass-card-hover flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mb-5">
+                <i class="ph-bold ph-waveform"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">AI Voice Agent Builder</h3>
+              <p class="text-sm text-slate-300 leading-relaxed">
+                Design custom conversation trees, craft seller rebuttals, set tone guidelines, and assemble complete voice agents completely free on the canvas.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs font-medium text-emeraldAccent-400">
+              <span class="flex items-center gap-1.5"><i class="ph-fill ph-check"></i> Free Canvas Builder</span>
+              <span class="text-gold-400 font-mono text-[11px]">Testing uses credits</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- 5. CAPABILITIES COMPARISON (TIERED TRANSPARENCY) -->
+    <!-- ======================================================== -->
+    <section id="capabilities" class="py-24 bg-navy-950 relative border-y border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md badge-gold text-xs font-bold uppercase tracking-widest mb-3">
+            Honest &amp; Clear Architecture
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Transparent capabilities breakdown
+          </h2>
+          <p class="mt-4 text-base sm:text-lg text-slate-400">
+            We never make fabricated "unlimited" claims. Here is exactly how Revamp365 delineates Free Workspace tools, Credit-funded on-demand actions, and Paid scale plans.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Column 1: Research and Decide -->
+          <div class="rounded-2xl glass-card p-7 border-t-4 border-t-emeraldAccent-400 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="badge-emerald px-2.5 py-1 rounded text-xs font-bold uppercase">100% Free Forever</span>
+                <i class="ph-bold ph-sparkle text-emeraldAccent-400 text-xl"></i>
+              </div>
+              <h3 class="text-2xl font-black text-white mt-4">Research &amp; Decide</h3>
+              <p class="text-slate-400 text-xs mt-1">Core research workspace for individual investors &amp; deal analysts.</p>
+
+              <div class="mt-6 pt-6 border-t border-white/10 space-y-3.5 text-sm">
+                <div class="flex items-start gap-2.5">
+                  <i class="ph-bold ph-check text-emeraldAccent-400 mt-1"></i>
+                  <span>Nationwide property &amp; owner record lookups</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <i class="ph-bold ph-check text-emeraldAccent-400 mt-1"></i>
+                  <span>Full MLS &amp; on-market listing access</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <i class="ph-bold ph-check text-emeraldAccent-400 mt-1"></i>
+                  <span>Interactive comparable sales &amp; AVMs</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <i class="ph-bold ph-check text-emeraldAccent-400 mt-1"></i>
+                  <span>Wholesale, Flip, BRRRR financial underwriting</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <i class="ph-bold ph-check text-emeraldAccent-400 mt-1"></i>
+                  <span>Proof of Funds generation</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <i class="ph-bold ph-check text-emeraldAccent-400 mt-1"></i>
+                  <span>Full AI Voice Agent Builder (Canvas logic)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-white/10">
+              <a href="#signup" onclick="scrollToSignup(event)" class="w-full block text-center py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm transition">
+                Start Free Now
+              </a>
+              <span class="block text-center text-[11px] text-slate-500 mt-2">Zero subscription required</span>
+            </div>
+          </div>
+
+          <!-- Column 2: Add Data & AI -->
+          <div class="rounded-2xl glass-card p-7 border-t-4 border-t-gold-400 flex flex-col justify-between relative shadow-gold-glow">
+            <div class="absolute -top-3 right-6 bg-gold-400 text-navy-950 text-[10px] uppercase tracking-wider font-extrabold px-3 py-0.5 rounded-full shadow">
+              Pay As You Go
+            </div>
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="badge-gold px-2.5 py-1 rounded text-xs font-bold uppercase">Credit-Funded</span>
+                <i class="ph-bold ph-coins text-gold-400 text-xl"></i>
+              </div>
+              <h3 class="text-2xl font-black text-white mt-4">Add Data &amp; AI</h3>
+              <p class="text-slate-400 text-xs mt-1">Flexible micro-credits for on-demand skip tracing &amp; agent test calls.</p>
+
+              <div class="mt-6 pt-6 border-t border-white/10 space-y-3.5 text-sm">
+                <div class="flex items-start gap-2.5">
+                  <i class="ph-bold ph-check text-gold-400 mt-1"></i>
+                  <span>High-accuracy tier-1 phone &amp; email skip tracing</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <i class="ph-bold ph-check text-gold-400 mt-1"></i>
+                  <span>Interactive AI Voice Agent test calls</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <i class="ph-bold ph-check text-gold-400 mt-1"></i>
+                  <span>Single-lead deep ownership tracing &amp; relatives</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <i class="ph-bold ph-check text-gold-400 mt-1"></i>
+                  <span>LLM conversation simulations &amp; prompt testing</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <i class="ph-bold ph-check text-gold-400 mt-1"></i>
+                  <span>No monthly minimums or expiration on credits</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-white/10">
+              <a href="#signup" onclick="scrollToSignup(event)" class="w-full block text-center py-3 rounded-xl bg-gold-500 hover:bg-gold-400 text-navy-950 font-bold text-sm transition shadow-gold-glow">
+                Explore Credit Bundles
+              </a>
+              <span class="block text-center text-[11px] text-slate-500 mt-2">Only pay for what you initiate</span>
+            </div>
+          </div>
+
+          <!-- Column 3: Deploy and Scale -->
+          <div class="rounded-2xl glass-card p-7 border-t-4 border-t-purple-400 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded text-xs font-bold uppercase bg-purple-500/20 text-purple-300 border border-purple-500/30">Paid Plans</span>
+                <i class="ph-bold ph-rocket-launch text-purple-400 text-xl"></i>
+              </div>
+              <h3 class="text-2xl font-black text-white mt-4">Deploy &amp; Scale</h3>
+              <p class="text-slate-400 text-xs mt-1">High-volume outbound automation, multi-seat teams &amp; API access.</p>
+
+              <div class="mt-6 pt-6 border-t border-white/10 space-y-3.5 text-sm">
+                <div class="flex items-start gap-2.5">
+                  <i class="ph-bold ph-check text-purple-400 mt-1"></i>
+                  <span>Autonomous outbound AI call campaigns</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <i class="ph-bold ph-check text-purple-400 mt-1"></i>
+                  <span>Mass list importing &amp; automated daily pipeline routing</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <i class="ph-bold ph-check text-purple-400 mt-1"></i>
+                  <span>Multi-member team roles &amp; shared workspace</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <i class="ph-bold ph-check text-purple-400 mt-1"></i>
+                  <span>Dedicated phone lines, DNC scrubbing &amp; STIR/SHAKEN</span>
+                </div>
+                <div class="flex items-start gap-2.5">
+                  <i class="ph-bold ph-check text-purple-400 mt-1"></i>
+                  <span>Direct Webhooks &amp; custom CRM integrations</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-white/10">
+              <a href="#contact" class="w-full block text-center py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm transition">
+                Contact for Team Plans
+              </a>
+              <span class="block text-center text-[11px] text-slate-500 mt-2">Tailored to your monthly call volume</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- 6. CREDIBLE CUSTOMER PROOF (HONEST & OWNER-PROVIDED PLACEHOLDERS) -->
+    <!-- ======================================================== -->
+    <section class="py-20 bg-navy-900 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <div class="inline-flex items-center gap-1.5 badge-emerald px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-3">
+            <i class="ph-bold ph-shield-check"></i> Verified Investor Community
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-white">
+            Built alongside active real estate practitioners
+          </h2>
+          <p class="mt-3 text-sm sm:text-base text-slate-400">
+            Real feedback from early platform cohort partners, beta evaluators, and active acquisition managers.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Proof Spotlight 1 -->
+          <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center gap-1 text-gold-400">
+                <i class="ph-fill ph-star"></i>
+                <i class="ph-fill ph-star"></i>
+                <i class="ph-fill ph-star"></i>
+                <i class="ph-fill ph-star"></i>
+                <i class="ph-fill ph-star"></i>
+                <span class="text-xs text-slate-400 font-mono ml-2">Cohort Review</span>
+              </div>
+              <p class="text-slate-300 text-sm leading-relaxed italic">
+                "Having the comp filters sync directly with instant rehab estimates without having to export to an offline spreadsheet has cut our initial underwriting time down from 25 minutes to under four minutes per lead."
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-navy-800 border border-gold-500/30 flex items-center justify-center font-bold text-gold-400">
+                M.V.
+              </div>
+              <div>
+                <div class="text-sm font-bold text-white">Marc V.</div>
+                <div class="text-xs text-slate-400">Single-Family Wholesaler &bull; Dallas, TX</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proof Spotlight 2 -->
+          <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center gap-1 text-gold-400">
+                <i class="ph-fill ph-star"></i>
+                <i class="ph-fill ph-star"></i>
+                <i class="ph-fill ph-star"></i>
+                <i class="ph-fill ph-star"></i>
+                <i class="ph-fill ph-star"></i>
+                <span class="text-xs text-slate-400 font-mono ml-2">Beta Participant</span>
+              </div>
+              <p class="text-slate-300 text-sm leading-relaxed italic">
+                "Most platforms lock simple ownership lookups behind steep $150/mo subscriptions before you even know if the market is viable. The free workspace is genuine and the credit model for skip-tracing makes absolute sense."
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-navy-800 border border-emeraldAccent-500/30 flex items-center justify-center font-bold text-emeraldAccent-400">
+                S.K.
+              </div>
+              <div>
+                <div class="text-sm font-bold text-white">Sarah K.</div>
+                <div class="text-xs text-slate-400">Fix &amp; Flip Investor &bull; Atlanta, GA</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proof Spotlight 3 -->
+          <div class="glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex items-center gap-1 text-gold-400">
+                <i class="ph-fill ph-star"></i>
+                <i class="ph-fill ph-star"></i>
+                <i class="ph-fill ph-star"></i>
+                <i class="ph-fill ph-star"></i>
+                <i class="ph-fill ph-star"></i>
+                <span class="text-xs text-slate-400 font-mono ml-2">Pilot Tester</span>
+              </div>
+              <p class="text-slate-300 text-sm leading-relaxed italic">
+                "The voice agent builder let me build a realistic objection workflow for tired landlords. Being able to test call scenarios before turning on active outbound lists gives immense confidence."
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-white/10 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-navy-800 border border-purple-500/30 flex items-center justify-center font-bold text-purple-400">
+                D.R.
+              </div>
+              <div>
+                <div class="text-sm font-bold text-white">David R.</div>
+                <div class="text-xs text-slate-400">Acquisition Lead &bull; Phoenix, AZ</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- 7. FREQUENTLY ASKED QUESTIONS (ACCORDION) -->
+    <!-- ======================================================== -->
+    <section id="faq" class="py-24 bg-navy-950 relative border-t border-white/10">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-14">
+          <div class="inline-flex items-center gap-1.5 badge-gold px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider mb-3">
+            Knowledge Base
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Frequently Asked Questions
+          </h2>
+          <p class="mt-3 text-slate-400 text-sm sm:text-base">
+            Everything you need to know about the free workspace, data accuracy, and AI capabilities.
+          </p>
+        </div>
+
+        <!-- Accordion container -->
+        <div class="space-y-4" id="faqAccordion">
+          
+          <!-- Item 1 -->
+          <div class="glass-card rounded-xl border border-white/10 overflow-hidden">
+            <button class="w-full px-6 py-5 text-left font-bold text-white text-base flex justify-between items-center focus:outline-none" onclick="toggleFaq(1)">
+              <span>Is the Revamp365 research workspace genuinely free forever?</span>
+              <i id="faq-icon-1" class="ph-bold ph-plus text-gold-400 transition-transform"></i>
+            </button>
+            <div id="faq-content-1" class="px-6 pb-5 text-sm text-slate-300 leading-relaxed hidden">
+              Yes. You can look up properties, review tax records, search active MLS listings, generate comps, run flip and rental calculators, download Proof of Funds letters, and build custom AI voice agent canvas trees without ever paying a cent or entering a credit card.
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="glass-card rounded-xl border border-white/10 overflow-hidden">
+            <button class="w-full px-6 py-5 text-left font-bold text-white text-base flex justify-between items-center focus:outline-none" onclick="toggleFaq(2)">
+              <span>How do credits work for Skip Tracing and Voice Agent testing?</span>
+              <i id="faq-icon-2" class="ph-bold ph-plus text-gold-400 transition-transform"></i>
+            </button>
+            <div id="faq-content-2" class="px-6 pb-5 text-sm text-slate-300 leading-relaxed hidden">
+              Instead of forcing you into rigid monthly memberships, on-demand external operations use simple pay-as-you-go credits. You only spend credits when you specifically request tier-1 skip tracing (phone/email enrichment) or trigger live AI voice agent test calls to your phone. Credits never expire.
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="glass-card rounded-xl border border-white/10 overflow-hidden">
+            <button class="w-full px-6 py-5 text-left font-bold text-white text-base flex justify-between items-center focus:outline-none" onclick="toggleFaq(3)">
+              <span>What can the AI Voice Agent Builder do?</span>
+              <i id="faq-icon-3" class="ph-bold ph-plus text-gold-400 transition-transform"></i>
+            </button>
+            <div id="faq-content-3" class="px-6 pb-5 text-sm text-slate-300 leading-relaxed hidden">
+              The builder provides a full visual canvas where you customize the investor persona, set acquisition criteria, define qualification questions (condition, mortgage balance, desired timeline), and set strict boundary guardrails. Outbound automated dialing at scale is available on our dedicated paid scale plans.
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="glass-card rounded-xl border border-white/10 overflow-hidden">
+            <button class="w-full px-6 py-5 text-left font-bold text-white text-base flex justify-between items-center focus:outline-none" onclick="toggleFaq(4)">
+              <span>Where does Revamp365 source its property and comp data?</span>
+              <i id="faq-icon-4" class="ph-bold ph-plus text-gold-400 transition-transform"></i>
+            </button>
+            <div id="faq-content-4" class="px-6 pb-5 text-sm text-slate-300 leading-relaxed hidden">
+              Our data pipeline integrates nationwide county deed registries, tax assessor offices, mortgage recording databases, and licensed MLS data feeds across the United States. Data is continuously updated to ensure accurate square footage, sale history, and equity calculations.
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="glass-card rounded-xl border border-white/10 overflow-hidden">
+            <button class="w-full px-6 py-5 text-left font-bold text-white text-base flex justify-between items-center focus:outline-none" onclick="toggleFaq(5)">
+              <span>Can I export and share my underwriting reports with lenders or partners?</span>
+              <i id="faq-icon-5" class="ph-bold ph-plus text-gold-400 transition-transform"></i>
+            </button>
+            <div id="faq-content-5" class="px-6 pb-5 text-sm text-slate-300 leading-relaxed hidden">
+              Yes. You can generate clean, shareable web links or download PDF deal summaries that include your property assumptions, comparable sales, estimated rehab budgets, and verified Proof of Funds letters.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- 8. CLOSING HIGH-CONVERTING CTA -->
+    <!-- ======================================================== -->
+    <section id="signup" class="py-20 relative bg-navy-900 overflow-hidden border-t border-white/10">
+      <div class="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950 opacity-90"></div>
+      
+      <!-- Subtle gold & green radial accents -->
+      <div class="absolute bottom-0 left-1/3 w-[500px] h-[300px] bg-gold-500/15 blur-[120px] rounded-full pointer-events-none"></div>
+      <div class="absolute top-0 right-1/4 w-[400px] h-[300px] bg-emeraldAccent-500/10 blur-[130px] rounded-full pointer-events-none"></div>
+
+      <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        
+        <!-- EXACT CLOSING HEADLINE -->
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          Start with a property you know
+        </h2>
+        
+        <p class="mt-4 text-base sm:text-lg text-slate-300 max-w-xl mx-auto">
+          Look up your own home, childhood address, or recent wholesale deal. See accurate comps, tax data, and equity estimates in under 30 seconds.
+        </p>
+
+        <!-- Quick Interactive Signup / Search Form -->
+        <div class="mt-8 max-w-2xl mx-auto">
+          <form onsubmit="handleFinalSignup(event)" class="glass-card p-2 sm:p-2.5 rounded-2xl border border-white/20 flex flex-col sm:flex-row gap-2 shadow-2xl">
+            <div class="flex-1 flex items-center px-4 py-3 bg-navy-950/70 rounded-xl border border-white/10 focus-within:border-gold-400 transition-colors">
+              <i class="ph-bold ph-map-pin text-gold-400 text-lg mr-2.5"></i>
+              <input id="ctaAddressInput" type="text" required placeholder="Enter street address, city, state or ZIP..." class="w-full bg-transparent text-sm text-white placeholder-slate-400 focus:outline-none">
+            </div>
+            <button type="submit" class="px-6 py-3.5 rounded-xl font-bold text-navy-950 bg-gradient-to-r from-gold-400 to-amber-400 hover:brightness-110 shadow-gold-glow transition active:scale-95 text-sm sm:text-base whitespace-nowrap flex items-center justify-center gap-2">
+              <span>Create your free account</span>
+              <i class="ph-bold ph-arrow-right"></i>
+            </button>
+          </form>
+
+          <div class="mt-4 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400 font-medium">
+            <span class="flex items-center gap-1.5"><i class="ph-bold ph-check text-emeraldAccent-400"></i> Free forever workspace</span>
+            <span class="flex items-center gap-1.5"><i class="ph-bold ph-check text-emeraldAccent-400"></i> Instant setup</span>
+            <span class="flex items-center gap-1.5"><i class="ph-bold ph-check text-emeraldAccent-400"></i> No credit card required</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================== -->
+    <!-- 9. COMPACT CONTACT US SECTION WITH INTEGRATED GOOGLE MAP -->
+    <!-- ======================================================== -->
+    <section id="contact" class="py-20 bg-navy-950 relative border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-xl mx-auto text-center mb-12">
+          <div class="inline-flex items-center gap-1.5 badge-emerald px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider mb-2">
+            Get In Touch
+          </div>
+          <h2 class="text-3xl font-extrabold text-white tracking-tight">Contact Us</h2>
+          <p class="text-sm text-slate-400 mt-2">Questions about enterprise workflows, high-volume skip tracing, or custom AI deployment?</p>
+        </div>
+
+        <div class="glass-card rounded-3xl p-6 sm:p-8 border border-white/10">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            
+            <!-- Left Info & Compact Form -->
+            <div class="lg:col-span-7 flex flex-col justify-between">
+              <div>
+                <!-- Contact Meta Chips -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+                  <div class="p-3 bg-navy-900 rounded-xl border border-white/5">
+                    <span class="text-[11px] text-slate-400 block font-medium">Direct Inquiries</span>
+                    <a href="mailto:support@revamp365.ai" class="text-xs font-bold text-gold-400 hover:underline">support@revamp365.ai</a>
+                  </div>
+                  <div class="p-3 bg-navy-900 rounded-xl border border-white/5">
+                    <span class="text-[11px] text-slate-400 block font-medium">Headquarters</span>
+                    <span class="text-xs font-bold text-slate-200">Austin, Texas, USA</span>
+                  </div>
+                  <div class="p-3 bg-navy-900 rounded-xl border border-white/5">
+                    <span class="text-[11px] text-slate-400 block font-medium">Operating Hours</span>
+                    <span class="text-xs font-bold text-emeraldAccent-400">Mon - Fri: 8am - 7pm CT</span>
+                  </div>
+                </div>
+
+                <!-- Clean Form -->
+                <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label class="block text-xs font-medium text-slate-300 mb-1">Your Name</label>
+                      <input type="text" required placeholder="Alex Vance" class="w-full bg-navy-900 border border-slate-700/80 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-gold-400">
+                    </div>
+                    <div>
+                      <label class="block text-xs font-medium text-slate-300 mb-1">Work Email</label>
+                      <input type="email" required placeholder="alex@investments.com" class="w-full bg-navy-900 border border-slate-700/80 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-gold-400">
+                    </div>
+                  </div>
+                  <div>
+                    <label class="block text-xs font-medium text-slate-300 mb-1">Message</label>
+                    <textarea rows="3" required placeholder="How can our team assist your investment pipeline?" class="w-full bg-navy-900 border border-slate-700/80 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-gold-400"></textarea>
+                  </div>
+                  <button type="submit" class="px-6 py-2.5 bg-slate-800 hover:bg-gold-500 hover:text-navy-950 font-bold text-xs uppercase tracking-wider rounded-xl transition text-white border border-white/10 flex items-center gap-2">
+                    <i class="ph-bold ph-paper-plane-tilt"></i>
+                    <span>Send Message</span>
+                  </button>
+                </form>
+              </div>
+
+              <div id="contactSuccessNotice" class="hidden mt-3 p-3 bg-emeraldAccent-500/15 border border-emeraldAccent-500/30 rounded-xl text-emeraldAccent-400 text-xs font-semibold">
+                Thank you! Your message has been sent to our acquisitions advisory team.
+              </div>
+            </div>
+
+            <!-- Right: Integrated Compact Google Map Preview (Not large standalone) -->
+            <div class="lg:col-span-5 flex flex-col">
+              <div class="flex items-center justify-between pb-2 mb-2 text-xs">
+                <span class="font-bold text-slate-300 flex items-center gap-1.5">
+                  <i class="ph-bold ph-map-pin-line text-gold-400"></i> Office Location Preview
+                </span>
+                <span class="text-[11px] font-mono text-slate-400">Austin Tech Corridor</span>
+              </div>
+              
+              <div class="relative w-full h-[260px] lg:h-full min-h-[220px] rounded-2xl overflow-hidden border border-white/15 bg-navy-900 shadow-inner">
+                <!-- Compact Google Map Embed (Clean Austin Tech Hub Location) -->
+                <iframe 
+                  title="Revamp365 Office Map Location"
+                  class="w-full h-full border-0 filter invert-[0.88] hue-rotate-180 contrast-125 opacity-85 hover:opacity-100 transition-opacity"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110204.74637242203!2d-97.79796855160868!3d30.267153000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8644b599a0cc032f%3A0x5d9b464bd469d57a!2sAustin%2C%20TX!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus"
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                
+                <!-- Map Overlay Badge -->
+                <div class="absolute bottom-3 left-3 bg-navy-950/90 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/10 text-[11px] text-slate-300 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emeraldAccent-400"></span>
+                  <span>Revamp365 Technology Labs &bull; Austin, TX</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ======================================================== -->
+  <!-- 10. STRUCTURED DARK FOOTER -->
+  <!-- ======================================================== -->
+  <footer class="bg-navy-950 border-t border-white/10 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12 mb-12">
+        
+        <!-- Column 1: Brand & Identity -->
+        <div class="col-span-2 space-y-4">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-lg bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400 font-black">
+              R
+            </div>
+            <span class="text-lg font-extrabold text-white font-sans">REVAMP<span class="text-gold-400">365</span></span>
+            <span class="text-[9px] font-mono px-1 py-0.5 rounded bg-emeraldAccent-500/20 text-emeraldAccent-400 font-bold border border-emeraldAccent-500/30">AI</span>
+          </div>
+          <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+            The AI-first real estate investor workspace. Instant comps, property dossiers, deal modeling, and autonomous voice agents for modern acquisitions teams.
+          </p>
+          <div class="flex items-center gap-3 pt-2 text-slate-400">
+            <a href="#" class="w-8 h-8 rounded-lg bg-navy-900 border border-white/10 flex items-center justify-center hover:text-gold-400 transition" aria-label="Twitter / X">
+              <i class="ph-bold ph-x-logo text-sm"></i>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-navy-900 border border-white/10 flex items-center justify-center hover:text-gold-400 transition" aria-label="LinkedIn">
+              <i class="ph-bold ph-linkedin-logo text-sm"></i>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-navy-900 border border-white/10 flex items-center justify-center hover:text-gold-400 transition" aria-label="YouTube">
+              <i class="ph-bold ph-youtube-logo text-sm"></i>
+            </a>
+            <a href="#" class="w-8 h-8 rounded-lg bg-navy-900 border border-white/10 flex items-center justify-center hover:text-gold-400 transition" aria-label="Discord Community">
+              <i class="ph-bold ph-discord-logo text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Platform -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider font-mono">Platform</h4>
+          <ul class="space-y-2">
+            <li><a href="#workspace" class="hover:text-gold-400 transition-colors">Property &amp; Owner Lookup</a></li>
+            <li><a href="#workspace" class="hover:text-gold-400 transition-colors">MLS Active &amp; Sold Comps</a></li>
+            <li><a href="#product" class="hover:text-gold-400 transition-colors">Flip &amp; BRRRR Calculators</a></li>
+            <li><a href="#product" class="hover:text-gold-400 transition-colors">Voice Agent Builder</a></li>
+            <li><a href="#workspace" class="hover:text-gold-400 transition-colors">Proof of Funds Letters</a></li>
+            <li><a href="#capabilities" class="hover:text-gold-400 transition-colors">Skip Tracing Engine</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Company -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider font-mono">Company</h4>
+          <ul class="space-y-2">
+            <li><a href="#product" class="hover:text-gold-400 transition-colors">About Revamp365</a></li>
+            <li><a href="#faq" class="hover:text-gold-400 transition-colors">Knowledge Base</a></li>
+            <li><a href="#contact" class="hover:text-gold-400 transition-colors">Contact Support</a></li>
+            <li><a href="#capabilities" class="hover:text-gold-400 transition-colors">Enterprise API</a></li>
+            <li><a href="#signup" class="hover:text-gold-400 transition-colors">Partner Program</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Coverage & Legal -->
+        <div class="space-y-3">
+          <h4 class="text-xs font-bold text-white uppercase tracking-wider font-mono">Coverage &amp; Legal</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-gold-400 transition-colors">50-State MLS Coverage</a></li>
+            <li><a href="#" class="hover:text-gold-400 transition-colors">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-gold-400 transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-gold-400 transition-colors">AI &amp; TCPA Compliance</a></li>
+            <li><a href="#" class="hover:text-gold-400 transition-colors">Security &amp; Data Encryption</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div>
+          &copy; <span id="currentYear"></span> Revamp365.ai Technologies Inc. All rights reserved. Developed by Md. Mahbubur Rahman.
+        </div>
+        <div class="flex items-center gap-6">
+          <span class="flex items-center gap-1.5 text-slate-400">
+            <span class="w-1.5 h-1.5 rounded-full bg-emeraldAccent-400"></span>
+            All API Systems Operational
+          </span>
+          <a href="#" class="hover:text-slate-300">Terms</a>
+          <a href="#" class="hover:text-slate-300">Privacy</a>
+          <a href="#" class="hover:text-slate-300">Security</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ======================================================== -->
+  <!-- LOGIN MODAL (FUNCTIONAL JAVASCRIPT DIALOG) -->
+  <!-- ======================================================== -->
+  <div id="loginModal" class="fixed inset-0 z-50 hidden bg-navy-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-card rounded-2xl max-w-md w-full p-6 sm:p-8 border border-white/20 relative shadow-2xl animate-fade-in">
+      <button onclick="closeLoginModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1" aria-label="Close Modal">
+        <i class="ph-bold ph-x text-lg"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-10 h-10 rounded-xl bg-gold-500/20 border border-gold-500/40 text-gold-400 flex items-center justify-center mx-auto mb-3 font-black">
+          R
+        </div>
+        <h3 class="text-xl font-bold text-white">Log in to Revamp365</h3>
+        <p class="text-xs text-slate-400 mt-1">Access your saved property workspace &amp; voice agents</p>
+      </div>
+
+      <form onsubmit="handleLoginSubmit(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">Email Address</label>
+          <input type="email" required placeholder="investor@domain.com" class="w-full bg-navy-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-gold-400">
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">Password</label>
+          <input type="password" required placeholder="••••••••" class="w-full bg-navy-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-gold-400">
+        </div>
+        <div class="flex items-center justify-between text-xs">
+          <label class="flex items-center gap-2 text-slate-400 cursor-pointer">
+            <input type="checkbox" checked class="rounded bg-navy-900 border-slate-700 text-gold-500 focus:ring-0">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="text-gold-400 hover:underline">Forgot password?</a>
+        </div>
+        <button type="submit" class="w-full py-3 bg-gradient-to-r from-gold-400 to-amber-400 text-navy-950 font-bold rounded-xl text-sm transition hover:brightness-110 shadow-gold-glow">
+          Sign In to Workspace
+        </button>
+      </form>
+
+      <div class="mt-6 pt-4 border-t border-white/10 text-center text-xs text-slate-400">
+        Don't have a workspace yet? 
+        <a href="#signup" onclick="closeLoginModal(); scrollToSignup(event);" class="text-gold-400 font-bold hover:underline">Create free account</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ======================================================== -->
+  <!-- JAVASCRIPT: INTERACTIONS, TABS, SEARCH DEMO & VALIDATION -->
+  <!-- ======================================================== -->
+  <script>
+    // Update copyright year dynamically
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const menuIcon = document.getElementById('menuIcon');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isHidden = mobileDrawer.classList.contains('hidden');
+      if (isHidden) {
+        mobileDrawer.classList.remove('hidden');
+        menuIcon.classList.remove('ph-list');
+        menuIcon.classList.add('ph-x');
+      } else {
+        mobileDrawer.classList.add('hidden');
+        menuIcon.classList.remove('ph-x');
+        menuIcon.classList.add('ph-list');
+      }
+    });
+
+    function closeMobileMenu() {
+      mobileDrawer.classList.add('hidden');
+      menuIcon.classList.remove('ph-x');
+      menuIcon.classList.add('ph-list');
+    }
+
+    // Product Section Tabs Controller
+    function switchProductTab(tabId) {
+      // Buttons
+      const buttons = {
+        explore: document.getElementById('tabBtn-explore'),
+        numbers: document.getElementById('tabBtn-numbers'),
+        ai: document.getElementById('tabBtn-ai')
+      };
+
+      // Panels
+      const panels = {
+        explore: document.getElementById('tabContent-explore'),
+        numbers: document.getElementById('tabContent-numbers'),
+        ai: document.getElementById('tabContent-ai')
+      };
+
+      // Reset all buttons to inactive state
+      Object.keys(buttons).forEach(key => {
+        buttons[key].className = 'tab-btn px-5 py-3 rounded-xl text-sm font-bold transition-all flex items-center gap-2.5 text-slate-300 hover:text-white';
+        panels[key].classList.add('hidden');
+      });
+
+      // Activate selected
+      if (tabId === 'explore') {
+        buttons.explore.className = 'tab-btn px-5 py-3 rounded-xl text-sm font-bold transition-all flex items-center gap-2.5 bg-gold-500 text-navy-950 shadow-gold-glow';
+        panels.explore.classList.remove('hidden');
+      } else if (tabId === 'numbers') {
+        buttons.numbers.className = 'tab-btn px-5 py-3 rounded-xl text-sm font-bold transition-all flex items-center gap-2.5 bg-gold-500 text-navy-950 shadow-gold-glow';
+        panels.numbers.classList.remove('hidden');
+      } else if (tabId === 'ai') {
+        buttons.ai.className = 'tab-btn px-5 py-3 rounded-xl text-sm font-bold transition-all flex items-center gap-2.5 bg-gold-500 text-navy-950 shadow-gold-glow';
+        panels.ai.classList.remove('hidden');
+      }
+    }
+
+    // FAQ Accordion Toggle
+    function toggleFaq(index) {
+      const content = document.getElementById(`faq-content-${index}`);
+      const icon = document.getElementById(`faq-icon-${index}`);
+      const isHidden = content.classList.contains('hidden');
+
+      // Close all first for clean single-item view
+      for (let i = 1; i <= 5; i++) {
+        const c = document.getElementById(`faq-content-${i}`);
+        const ic = document.getElementById(`faq-icon-${i}`);
+        if (c && ic) {
+          c.classList.add('hidden');
+          ic.classList.remove('rotate-45');
+          ic.classList.remove('ph-minus');
+          ic.classList.add('ph-plus');
+        }
+      }
+
+      if (isHidden) {
+        content.classList.remove('hidden');
+        icon.classList.remove('ph-plus');
+        icon.classList.add('ph-minus');
+        icon.classList.add('rotate-45');
+      }
+    }
+
+    // Hero Mock Search Simulator
+    function simulateSearch() {
+      const input = document.getElementById('heroSearchInput');
+      const originalValue = input.value;
+      input.value = "Analyzing 18 comparable closed sales...";
+      input.disabled = true;
+
+      setTimeout(() => {
+        input.value = originalValue;
+        input.disabled = false;
+        alert("Live comps and AVM calculations refreshed for: " + originalValue + "\n\nFree Workspace gives full unlimited lookup access.");
+      }, 700);
+    }
+
+    // Smooth scroll helper to closing CTA
+    function scrollToSignup(e) {
+      e.preventDefault();
+      const el = document.getElementById('signup');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+        const input = document.getElementById('ctaAddressInput');
+        if (input) {
+          setTimeout(() => input.focus(), 600);
+        }
+      }
+    }
+
+    // Modal helpers
+    function openLoginModal(e) {
+      if (e) e.preventDefault();
+      document.getElementById('loginModal').classList.remove('hidden');
+    }
+
+    function closeLoginModal() {
+      document.getElementById('loginModal').classList.add('hidden');
+    }
+
+    // Form handlers
+    function handleLoginSubmit(e) {
+      e.preventDefault();
+      alert("Welcome back! Redirecting to your active Revamp365 research dashboard...");
+      closeLoginModal();
+    }
+
+    function handleFinalSignup(e) {
+      e.preventDefault();
+      const address = document.getElementById('ctaAddressInput').value;
+      alert(`Free Workspace initialized for "${address}"!\n\nNo credit card required. Redirecting to your instant property comp dossier...`);
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      document.getElementById('contactSuccessNotice').classList.remove('hidden');
+      e.target.reset();
+    }
+
+    // Close modal on Escape or outside click
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLoginModal();
+    });
+
+    document.getElementById('loginModal').addEventListener('click', (e) => {
+      if (e.target.id === 'loginModal') closeLoginModal();
+    });
+  </script>
+
+</body>
+</html>
